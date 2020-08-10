@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Main from './Components/Main';
+import Routing from './Components/Routing';
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="App">
-        <Main />
+        <Routing />
       </div>
     </BrowserRouter>
   );
