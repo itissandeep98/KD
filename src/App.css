@@ -5,5 +5,14 @@
 }
 
 .tabs{
-	height: 700px;
+	height: 866px;
+	overflow: scroll;
+}
+.table{
+	position: absolute;
+	left: 0px;
+}
+
+.table thead tr{
+	background-color: #c9cace;
 }
