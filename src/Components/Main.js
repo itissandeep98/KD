@@ -7,12 +7,15 @@ import RightNav from './RightNav'
 export default class Main extends Component {
 	render() {
 		return (
-			<div className="container-fluid">
-				<div className="row">
-				<Header/>
-				<LeftNav/>
-				<Center/>
-				<RightNav/>
+			<div className="">
+
+				<Header />
+				<div className="container-fluid">
+					<div className="row">
+						<LeftNav />
+						<Center />
+						<RightNav />
+					</div>
 				</div>
 			</div>
 		)

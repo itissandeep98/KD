@@ -5,7 +5,7 @@ import Main from './Main'
 class Routing extends Component {
 	render() {
 		return (
-			<div className="container-fluid" >
+			<div >
 				<Switch>
 					<Route path="/" component={()=> <Main/>}/>
 					<Redirect to="/"/>
