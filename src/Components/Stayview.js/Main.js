@@ -7,8 +7,7 @@ import RightNav from './RightNav'
 export default class Main extends Component {
 	render() {
 		return (
-			<div className="">
-
+			<div>
 				<Header />
 				<div className="container-fluid">
 					<div className="row">

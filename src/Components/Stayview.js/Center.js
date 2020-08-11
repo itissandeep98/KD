@@ -16,9 +16,10 @@ export default class Center extends Component {
 			}
 			body.push(<tr>{element}</tr>)
 		}
+
 		return (
 			<div className="col-6 col-lg-8 text-center border tabs">
-				<Table bordered>
+				<Table borderless>
 					<thead>
 						<tr>
 							<td colSpan={10}>
