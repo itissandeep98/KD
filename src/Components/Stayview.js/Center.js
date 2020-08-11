@@ -1,42 +1,78 @@
 import React, { Component } from 'react'
 import { Table } from 'reactstrap'
+import Popup from './Popup'
 
 export default class Center extends Component {
-	render() {
+	constructor(props){
+		super(props)
 		const head=[]
-		const body=[]
 		for (let i = 8; i <= 17; i++) {
-			var element = <td>{i}</td>
-			head.push(element)			
+			head.push(i)
 		}
-		for (let i = 0; i < 50; i++) {
-			const element=[]
+		const body=[]
+		for (let i = 0; i < 35; i++) {
+			const element = []
 			for (let j = 0; j <= 9; j++) {
-				element.push(<td/>)
+				element.push("")
 			}
-			body.push(<tr>{element}</tr>)
+			body.push(element)
 		}
+		this.state={
+			head:head,
+			body:body,
+			show:false,
+			xpos:0,
+			ypos:0
+		}
+		this.showPopup=this.showPopup.bind(this)
+	}
+	componentDidMount(){
+		document.addEventListener("contextmenu",(e)=>e.preventDefault())
+	}
 
+	showPopup(e){
+		console.log(e.target);
+		const target=e.target
+		this.setState({
+			show:true,
+			xpos:target.offsetLeft+350,
+			ypos: target.offsetTop + 68
+		})
+	}
+
+	render() {
 		return (
-			<div className="col-6 col-lg-8 text-center border tabs">
-				<Table borderless>
+			<div className="col-6 col-lg-8  border tabs center">
+				<Popup show={this.state.show} xpos={this.state.xpos} ypos={this.state.ypos}/>
+				<Table bordered className="text-center">
 					<thead>
 						<tr>
-							<td colSpan={10}>
+							<td colSpan={20}>
 								Mon 01 Dec
 							</td>
 						</tr>
 					</thead>
 					<thead>
 						<tr>
-							{head}
+							{this.state.head.map(t=>(
+								<td colSpan={2}>{t}</td>
+							))}
 						</tr>
 					</thead>
 					<tbody>
-						{body}
+						{this.state.body.map(row=>(
+							<tr>
+								{row.map(cell=>(
+									<td colSpan={2} onContextMenu={(e)=>this.showPopup(e)}>
+										{cell}
+									</td>))
+								}
+							</tr>
+						))}
 					</tbody>
 
 				</Table>
+				
 			</div>
 		)
 	}

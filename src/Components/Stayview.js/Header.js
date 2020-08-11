@@ -4,15 +4,15 @@ import { Navbar, NavbarBrand, Nav, NavItem, Button } from 'reactstrap'
 export default class Header extends Component {
 
 	maxWindow(e) {
-		console.log(e.target);
-		if(e.target.type==="button"){
-			return
+		var target=e.target
+		if(target.type==="button"){
+			target=target.firstChild
 		}
-		if (e.target.classList.contains("rotated")){
-			e.target.classList.remove("rotated")
+		if (target.classList.contains("rotated")){
+			target.classList.remove("rotated")
 		}
 		else{
-			e.target.classList.add("rotated")
+			target.classList.add("rotated")
 		}
 		
 		
@@ -44,12 +44,12 @@ export default class Header extends Component {
 					<Nav navbar />
 					<Nav className="ml-auto" navbar>
 						<NavItem>
-							<Button onClick={(e) => this.maxWindow(e)} style={{ cursor: "default" }}>
-								<span className="fa fa-plus fa-lg" style={{cursor:"cell"}} />
+							<Button onClick={(e) => this.maxWindow(e)} >
+								<span className="fa fa-plus fa-lg" />
 							</Button>
 						</NavItem>
 						<NavItem style={{ marginLeft: "10px" }}>
-							<Button style={{ cursor: "default" }}>
+							<Button >
 								<span className="fa fa-bullseye fa-lg" style={{ cursor: "cell" }}/>
 							</Button>
 						</NavItem>
