@@ -1,4 +1,8 @@
 
+*{
+	font-family: cursive;
+	font-size: small;	
+}
 .navbar {
 	background-color: #1d89e4;
 	color: #fff;
