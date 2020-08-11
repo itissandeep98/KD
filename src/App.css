@@ -3,14 +3,15 @@
 	font-family: cursive;
 	font-size: small;	
 }
+
 .navbar {
 	background-color: #1d89e4;
 	color: #fff;
 }
 
 .tabs{
-	height: 866px;
 	overflow: scroll;
+	height: 94vh;
 }
 .table{
 	position: absolute;

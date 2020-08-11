@@ -19,7 +19,7 @@ export default class RightNav extends Component {
 		return (
 			<div className="col-3 col-lg-2 tabs">
 				<Table bordered responsive >
-					<thead>
+					<thead className="text-center">
 						<tr>
 							<td>Status</td>
 							<td>No. of Rooms</td>
