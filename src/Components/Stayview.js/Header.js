@@ -3,7 +3,19 @@ import { Navbar, NavbarBrand, Nav, NavItem, Button } from 'reactstrap'
 
 export default class Header extends Component {
 
-	maxWindow() {
+	maxWindow(e) {
+		console.log(e.target);
+		if(e.target.type==="button"){
+			return
+		}
+		if (e.target.classList.contains("rotated")){
+			e.target.classList.remove("rotated")
+		}
+		else{
+			e.target.classList.add("rotated")
+		}
+		
+		
 		if ((document.fullScreenElement && document.fullScreenElement !== null) ||
 			(!document.mozFullScreen && !document.webkitIsFullScreen)) {
 			if (document.documentElement.requestFullScreen) {
@@ -32,13 +44,13 @@ export default class Header extends Component {
 					<Nav navbar />
 					<Nav className="ml-auto" navbar>
 						<NavItem>
-							<Button onClick={() => this.maxWindow()}>
-								<span className="fa fa-plus fa-lg" />
+							<Button onClick={(e) => this.maxWindow(e)} style={{ cursor: "default" }}>
+								<span className="fa fa-plus fa-lg" style={{cursor:"cell"}} />
 							</Button>
 						</NavItem>
 						<NavItem style={{ marginLeft: "10px" }}>
-							<Button>
-								<span className="fa fa-bullseye fa-lg" />
+							<Button style={{ cursor: "default" }}>
+								<span className="fa fa-bullseye fa-lg" style={{ cursor: "cell" }}/>
 							</Button>
 						</NavItem>
 					</Nav>
