@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Table } from 'reactstrap'
-import { room } from '../shared/roomData';
+import { room } from '../../shared/roomData';
 
 export default class LeftNav extends Component {
 	render() {
@@ -10,15 +10,15 @@ export default class LeftNav extends Component {
 					<h5> <i className="fa fa-hotel d-inline" /> {r.type}</h5>
 					{r.detail}
 				</td>
-				<td>
+				<td className="text-center">
 					{r.num}
 				</td>
 
 			</tr>
 		))
 		return (
-			<div className="col-3 tabs border">
-				<Table bordered responsive hover >
+			<div className="col-3 col-lg-2 tabs ">
+				<Table bordered responsive >
 					<thead>
 						<tr className="text-center">
 							<td>Room Types</td>

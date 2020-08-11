@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter, Switch, Route, Redirect } from 'react-router-dom'
-import Main from './Main'
+import Main from './Stayview.js/Main'
 
 class Routing extends Component {
 	render() {

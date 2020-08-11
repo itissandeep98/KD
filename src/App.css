@@ -16,3 +16,7 @@
 .table thead tr{
 	background-color: #c9cace;
 }
+
+.table tbody :hover{
+	background-color:#ffebca;
+}
