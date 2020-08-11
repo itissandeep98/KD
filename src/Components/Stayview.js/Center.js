@@ -5,13 +5,13 @@ export default class Center extends Component {
 	render() {
 		const head=[]
 		const body=[]
-		for (let i = 8; i < 17; i++) {
+		for (let i = 8; i <= 17; i++) {
 			var element = <td>{i}</td>
 			head.push(element)			
 		}
 		for (let i = 0; i < 50; i++) {
 			const element=[]
-			for (let j = 0; j < 9; j++) {
+			for (let j = 0; j <= 9; j++) {
 				element.push(<td/>)
 			}
 			body.push(<tr>{element}</tr>)
@@ -21,7 +21,7 @@ export default class Center extends Component {
 				<Table bordered>
 					<thead>
 						<tr>
-							<td colSpan={9}>
+							<td colSpan={10}>
 								Mon 01 Dec
 							</td>
 						</tr>
