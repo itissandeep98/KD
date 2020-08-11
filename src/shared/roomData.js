@@ -11,67 +11,67 @@ export const room=[
 	},
 	{
 		"type":"Family Room",
-		"num":104,
+		"num":103,
 		"detail":"Family Room | 4 Beds |"
 	},
 	{
 		"type": "Deluxe Room",
-		"num": 101,
+		"num": 104,
 		"detail": "1 Bedroom"
 	},
 	{
 		"type": "King Room",
-		"num": 102,
+		"num": 105,
 		"detail": "2 King Size Bed Rooms"
 	},
 	{
 		"type": "Family Room",
-		"num": 104,
+		"num": 106,
 		"detail": "Family Room | 4 Beds |"
 	},
 	{
 		"type": "Deluxe Room",
-		"num": 101,
+		"num": 107,
 		"detail": "1 Bedroom"
 	},
 	{
 		"type": "King Room",
-		"num": 102,
+		"num": 108,
 		"detail": "2 King Size Bed Rooms"
 	},
 	{
 		"type": "Family Room",
-		"num": 104,
+		"num": 109,
 		"detail": "Family Room | 4 Beds |"
 	},
 	{
 		"type": "Deluxe Room",
-		"num": 101,
+		"num": 110,
 		"detail": "1 Bedroom"
 	},
 	{
 		"type": "King Room",
-		"num": 102,
+		"num": 111,
 		"detail": "2 King Size Bed Rooms"
 	},
 	{
 		"type": "Family Room",
-		"num": 104,
+		"num": 112,
 		"detail": "Family Room | 4 Beds |"
 	},
 	{
 		"type": "Deluxe Room",
-		"num": 101,
+		"num": 113,
 		"detail": "1 Bedroom"
 	},
 	{
 		"type": "King Room",
-		"num": 102,
+		"num": 114,
 		"detail": "2 King Size Bed Rooms"
 	},
 	{
 		"type": "Family Room",
-		"num": 104,
+		"num": 115,
 		"detail": "Family Room | 4 Beds |"
 	}
 ]

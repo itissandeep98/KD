@@ -26,7 +26,3 @@
 .table tbody :hover{
 	background-color:#ffebca;
 }
-
-.table tr :nth-child(2) :hover{
-	background-color: #000;
-}
