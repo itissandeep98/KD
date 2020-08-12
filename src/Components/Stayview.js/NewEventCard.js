@@ -26,7 +26,7 @@ function NewEventCard ({cancel}) {
 						</FormGroup>
 						<FormGroup className="row">
 							<Label className="col-3"> Start</Label>
-							<Button id="cal1" className="col-4"> cal</Button>
+							<Button id="cal1" className="col-4" onClick={(e)=>e.preventDefault()}> cal</Button>
 							<UncontrolledPopover trigger="legacy" placement="bottom" target="cal1">
 								<PopoverBody>
 									<Calendar />
@@ -36,7 +36,7 @@ function NewEventCard ({cancel}) {
 						</FormGroup>
 						<FormGroup className="row">
 							<Label className="col-3"> End</Label>
-							<Button id="cal2" className="col-4"> cal</Button>
+							<Button id="cal2" className="col-4" onClick={(e) => e.preventDefault()}> cal</Button>
 							<UncontrolledPopover trigger="legacy" placement="bottom" target="cal2">
 								<PopoverBody>
 									<Calendar />
