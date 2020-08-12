@@ -78,3 +78,9 @@ input{
 .calendarpopup .react-calendar{
 	font-size: 3px;
 }
+
+.input-group{
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+	margin-right: 5px;
+}
