@@ -1,21 +1,9 @@
 import React, { Component } from 'react'
-import { Navbar, NavbarBrand, Nav, NavItem, Button } from 'reactstrap'
+import { Navbar, NavbarBrand, Nav, NavItem, Button, UncontrolledTooltip } from 'reactstrap'
 
 export default class Header extends Component {
 
 	maxWindow(e) {
-		var target=e.target
-		if(target.type==="button"){
-			target=target.firstChild
-		}
-		if (target.classList.contains("rotated")){
-			target.classList.remove("rotated")
-		}
-		else{
-			target.classList.add("rotated")
-		}
-		
-		
 		if ((document.fullScreenElement && document.fullScreenElement !== null) ||
 			(!document.mozFullScreen && !document.webkitIsFullScreen)) {
 			if (document.documentElement.requestFullScreen) {
@@ -44,13 +32,16 @@ export default class Header extends Component {
 					<Nav navbar />
 					<Nav className="ml-auto" navbar>
 						<NavItem>
-							<Button onClick={(e) => this.maxWindow(e)} >
-								<span className="fa fa-plus fa-lg" />
+							<Button onClick={(e) => this.maxWindow(e)} id="expandbtn" >
+								<span className="fa fa-expand fa-lg" />
 							</Button>
+							<UncontrolledTooltip placement="bottom" target="expandbtn">
+								Toggle Full Screen View
+      						</UncontrolledTooltip>
 						</NavItem>
 						<NavItem style={{ marginLeft: "10px" }}>
-							<Button >
-								<span className="fa fa-bullseye fa-lg" style={{ cursor: "cell" }}/>
+							<Button aria-disabled>
+								<span className="fa fa-magic fa-lg"/>
 							</Button>
 						</NavItem>
 					</Nav>

@@ -28,12 +28,6 @@ export default class Center extends Component {
 		this.hidePopup = this.hidePopup.bind(this)
 		this.popup = React.createRef();
 	}
-	componentDidMount(){
-		document.addEventListener("contextmenu",(e)=>e.preventDefault())
-	}
-	componentWillUnmount(){
-		document.removeEventListener("contextmenu")
-	}
 
 	showPopup(e){
 		// console.log(e.target);
@@ -52,9 +46,9 @@ export default class Center extends Component {
 
 	render() {
 		return (
-			<div className="col-6 col-lg-8  border tabs center">
+			<div className="col-6 col-lg-8  border tabs center" >
 				<Popup show={this.state.show} xpos={this.state.xpos} ypos={this.state.ypos} hide={this.hidePopup}/>
-				<Table bordered className="text-center">
+				<Table bordered className="text-center" onContextMenu={e => e.preventDefault()}>
 					<thead>
 						<tr>
 							<td colSpan={20}>
