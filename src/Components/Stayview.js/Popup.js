@@ -23,7 +23,19 @@ export default class Popup extends Component {
 	}
 
 	handleOutsideClick(event){
-		if (this.popup && !this.popup.current.contains(event.target)) {
+		var target=event.target
+		if (target.parentElement.type === "button" || target.parentElement.type === "select-one"){ // for calendar elements and timers
+			target=target.parentElement
+		}
+		const excludingClasses = ["react-time-picker__inputGroup__input","react-calendar__tile", "react-calendar__navigation__arrow", "react-calendar__navigation__label__labelText", "react-calendar__navigation__label"]
+		var cond=true
+
+		for (const element of excludingClasses) {
+			cond=cond && !target.classList.contains(element)
+		}
+
+		if (this.popup && !this.popup.current.contains(target)  && cond && !target.tagName==="line") {
+			console.log(target,cond);
 			this.cancelEvent(event)
 		}
 	}
