@@ -5,7 +5,7 @@ import { stats } from '../../shared/roomStats'
 export default class RightNav extends Component {
 	render() {
 		const rooms = stats.map(r => (
-			<tr>
+			<tr key={Math.random().toString()}>
 				<td>
 					{r.icon}
 					{r.status}

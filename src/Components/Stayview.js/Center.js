@@ -53,7 +53,7 @@ export default class Center extends Component {
 				<Table bordered className="text-center" onContextMenu={e => e.preventDefault()}>
 					<thead>
 						<tr>
-							<td colSpan={20}>
+							<td colSpan={20} key={Math.random().toString()}>
 								Mon 01 Dec
 							</td>
 						</tr>
@@ -61,15 +61,15 @@ export default class Center extends Component {
 					<thead>
 						<tr>
 							{this.state.head.map(t=>(
-								<td colSpan={2}>{t}</td>
+								<td colSpan={2} key={Math.random().toString()}>{t}</td>
 							))}
 						</tr>
 					</thead>
 					<tbody>
 						{this.state.body.map(row=>(
-							<tr>
+							<tr key={Math.random().toString()}>
 								{row.map(cell=>(
-									<td colSpan={2} onContextMenu={(e)=>this.showPopup(e)}>
+									<td colSpan={2} onContextMenu={(e) => this.showPopup(e)} key={Math.random().toString()}>
 										{cell}
 									</td>))
 								}
