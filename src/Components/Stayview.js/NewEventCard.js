@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, CardBody, Button, CardHeader, Form, FormGroup, Label, Input, Row, Col, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, PopoverBody, UncontrolledPopover, InputGroup, InputGroupAddon } from 'reactstrap'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
+import TimePicker from 'react-time-picker';
 
 function NewEventCard({ cancel }) {
+	const [time, onChange] = useState('10:00');
+	const [time1, onChange1] = useState('10:00');
+	const [date, setDate] = useState(new Date())
+	const [date1, setDate1] = useState(new Date())
 	return (
 		<div>
 			<Card id="popupcard">
@@ -26,25 +31,27 @@ function NewEventCard({ cancel }) {
 						</FormGroup>
 						<FormGroup className="row">
 							<Label className="col-3"> Start</Label>
+
 							<InputGroup className="col-4">
-								<Input />
+								<Input value={date.toDateString()} readOnly/>
 								<InputGroupAddon addonType="append">
 									<Button id="cal1" outline onClick={(e) => e.preventDefault()}><span className="fa fa-calendar fa-lg" /></Button>
 									<UncontrolledPopover trigger="legacy" placement="bottom" target="cal1">
 										<PopoverBody className="calendarpopup">
-											<Calendar />
+											<Calendar value={date} onChange={setDate}/>
 										</PopoverBody>
 									</UncontrolledPopover>
 								</InputGroupAddon>
 							</InputGroup>
 
 							<InputGroup className="col-4">
-								<Input />
+								<Input value={time} readOnly/>
 								<InputGroupAddon addonType="append">
 									<Button id="tim1" outline onClick={(e) => e.preventDefault()}><span className="fa fa-history fa-lg" /></Button>
 									<UncontrolledPopover trigger="legacy" placement="bottom" target="tim1">
-										<PopoverBody className="calendarpopup">
-											Time
+										<PopoverBody >
+											<TimePicker onChange={onChange}
+												value={time}/>
 										</PopoverBody>
 									</UncontrolledPopover>
 								</InputGroupAddon>
@@ -52,24 +59,28 @@ function NewEventCard({ cancel }) {
 						</FormGroup>
 						<FormGroup className="row">
 							<Label className="col-3"> End</Label>
+
 							<InputGroup className="col-4">
-								<Input />
+								<Input value={date1.toDateString()} readOnly/>
 								<InputGroupAddon addonType="append">
-									<Button id="cal1" outline onClick={(e) => e.preventDefault()}><span className="fa fa-calendar fa-lg" /></Button>
-									<UncontrolledPopover trigger="legacy" placement="bottom" target="cal1">
+									<Button id="cal2" outline onClick={(e) => e.preventDefault()}><span className="fa fa-calendar fa-lg" /></Button>
+									<UncontrolledPopover trigger="legacy" placement="bottom" target="cal2">
 										<PopoverBody className="calendarpopup">
-											<Calendar />
+											<Calendar value={date1} onChange={setDate1}/>
 										</PopoverBody>
 									</UncontrolledPopover>
 								</InputGroupAddon>
 							</InputGroup>
+
 							<InputGroup className="col-4">
-								<Input />
+								<Input value={time1} readOnly/>
 								<InputGroupAddon addonType="append">
 									<Button id="tim2" outline onClick={(e) => e.preventDefault()}><span className="fa fa-history fa-lg" /></Button>
 									<UncontrolledPopover trigger="legacy" placement="bottom" target="tim2">
-										<PopoverBody className="calendarpopup">
-											Time
+										<PopoverBody >
+											<TimePicker onChange={onChange1}
+												value={time1} 
+												/>
 										</PopoverBody>
 									</UncontrolledPopover>
 								</InputGroupAddon>
