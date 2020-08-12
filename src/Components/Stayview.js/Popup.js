@@ -19,11 +19,9 @@ export default class Popup extends Component {
 	}
 
 	handleOutsideClick(event){
-		console.log(event.target);
 		if (this.popup && !this.popup.current.contains(event.target)) {
 			this.props.hide()
 			this.setState({ event: false })
-			console.log(this.popup,event.target);
 		}
 	}
 

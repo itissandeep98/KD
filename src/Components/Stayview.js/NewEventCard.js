@@ -1,15 +1,47 @@
 import React from 'react'
-import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap'
+import { Card, CardBody, Button, CardHeader, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap'
 
 const NewEventCard = () => {
 	return (
 		<div>
 			<Card>
+				<CardHeader>Edit Event</CardHeader>
 				<CardBody>
-					<CardTitle>Card title</CardTitle>
-					<CardSubtitle>Card subtitle</CardSubtitle>
-					<CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-					<Button>Button</Button>
+					<Form>
+						<FormGroup className="row">
+							<Label className="col-3"> Name</Label>
+							<Input className="col-8" type="text"/>
+						</FormGroup>
+						<FormGroup className="row">
+							<Label className="col-3"> Resource</Label>
+							<Input className="col-8" type="text" />
+						</FormGroup>
+						<FormGroup className="row">
+							<Label className="col-3"> Start</Label>
+							<Input className="col-4" type="text" />
+							<Input className="col-4" type="text" />
+						</FormGroup>
+						<FormGroup className="row">
+							<Label className="col-3"> End</Label>
+							<Input className="col-4" type="text" />
+							<Input className="col-4" type="text" />
+						</FormGroup>
+						<Row>
+							<Col>
+								<Button color="info"><span className="fa fa-plus"/> Save</Button>
+							</Col>
+							<Col>
+								<Button color="danger"> <span className="fa fa-trash" /> Delete</Button>
+							</Col>
+							<Col>
+								<Button><span className="fa fa-times" /> Cancel</Button>
+							</Col>
+							
+						</Row>
+						
+
+					</Form>	
+				
 				</CardBody>
 			</Card>
 			

@@ -49,3 +49,6 @@
 .popup ul{
 	cursor: pointer;
 }
+input{
+	margin: 3px 3px 0px 0px !important;
+}
