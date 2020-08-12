@@ -52,3 +52,15 @@
 input{
 	margin: 3px 3px 0px 0px !important;
 }
+
+.dropdown{
+	padding: 0px !important;
+}
+.dropdown-toggle{
+	text-align: right !important;
+	margin: 0px !important;
+	width: 100%;
+	border-color: rgb(202, 200, 200) !important;
+	color: rgb(48, 46, 46) !important;
+	background-color: #fff !important;
+}

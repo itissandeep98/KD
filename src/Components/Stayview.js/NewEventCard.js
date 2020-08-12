@@ -1,5 +1,7 @@
 import React from 'react'
-import { Card, CardBody, Button, CardHeader, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap'
+import { Card, CardBody, Button, CardHeader, Form, FormGroup, Label, Input, Row, Col, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, PopoverBody, UncontrolledPopover } from 'reactstrap'
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
 
 function NewEventCard ({cancel}) {
 	return (
@@ -14,16 +16,32 @@ function NewEventCard ({cancel}) {
 						</FormGroup>
 						<FormGroup className="row">
 							<Label className="col-3"> Resource</Label>
-							<Input className="col-8" type="text" />
+							<UncontrolledDropdown className="col-8">
+								<DropdownToggle caret/>
+								<DropdownMenu>
+									<DropdownItem>Item 1</DropdownItem>
+									<DropdownItem>Item 2</DropdownItem>
+								</DropdownMenu>
+							</UncontrolledDropdown>
 						</FormGroup>
 						<FormGroup className="row">
 							<Label className="col-3"> Start</Label>
-							<Input className="col-4" type="text" />
+							<Button id="cal1" className="col-4"> cal</Button>
+							<UncontrolledPopover trigger="legacy" placement="bottom" target="cal1">
+								<PopoverBody>
+									<Calendar />
+								</PopoverBody>
+							</UncontrolledPopover>
 							<Input className="col-4" type="text" />
 						</FormGroup>
 						<FormGroup className="row">
 							<Label className="col-3"> End</Label>
-							<Input className="col-4" type="text" />
+							<Button id="cal2" className="col-4"> cal</Button>
+							<UncontrolledPopover trigger="legacy" placement="bottom" target="cal2">
+								<PopoverBody>
+									<Calendar />
+								</PopoverBody>
+							</UncontrolledPopover>
 							<Input className="col-4" type="text" />
 						</FormGroup>
 						<Row>

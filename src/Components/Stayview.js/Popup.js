@@ -19,7 +19,7 @@ export default class Popup extends Component {
 		document.addEventListener("click",this.handleOutsideClick)
 	}
 	componentWillUnmount(){
-		document.removeEventListener("click")
+		document.removeEventListener("click", this.handleOutsideClick)
 	}
 
 	handleOutsideClick(event){
