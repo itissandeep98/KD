@@ -18,7 +18,7 @@ export default class RightNav extends Component {
 		))
 		return (
 			<div className="col-3 col-lg-2 tabs">
-				<Table bordered responsive >
+				<Table responsive onContextMenu={e => e.preventDefault()}>
 					<thead className="text-center">
 						<tr>
 							<td>Status</td>

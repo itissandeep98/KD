@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Navbar, NavbarBrand, Nav, NavItem, Button, UncontrolledTooltip } from 'reactstrap'
+import { Navbar, NavbarBrand, Nav, NavItem, UncontrolledTooltip } from 'reactstrap'
+import { IconButton } from '@material-ui/core';
 
 export default class Header extends Component {
 
@@ -32,17 +33,17 @@ export default class Header extends Component {
 					<Nav navbar />
 					<Nav className="ml-auto" navbar>
 						<NavItem>
-							<Button onClick={(e) => this.maxWindow(e)} id="expandbtn" >
+							<IconButton onClick={(e) => this.maxWindow(e)} id="expandbtn" >
 								<span className="fa fa-expand fa-lg" />
-							</Button>
+							</IconButton>
 							<UncontrolledTooltip placement="bottom" target="expandbtn">
 								Toggle Full Screen View
       						</UncontrolledTooltip>
 						</NavItem>
 						<NavItem style={{ marginLeft: "10px" }}>
-							<Button aria-disabled>
+							<IconButton aria-disabled>
 								<span className="fa fa-magic fa-lg"/>
-							</Button>
+							</IconButton>
 						</NavItem>
 					</Nav>
 				</Navbar>

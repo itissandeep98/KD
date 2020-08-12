@@ -18,7 +18,7 @@ export default function LeftNav() {
 	})
 	return (
 		<div className="col-3 col-lg-2 tabs ">
-			<Table bordered responsive >
+			<Table  responsive onContextMenu={e=>e.preventDefault()} >
 				<thead>
 					<tr className="text-center">
 						<td>Room Types</td>
