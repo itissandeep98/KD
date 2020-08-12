@@ -31,6 +31,9 @@ export default class Center extends Component {
 	componentDidMount(){
 		document.addEventListener("contextmenu",(e)=>e.preventDefault())
 	}
+	componentWillUnmount(){
+		document.removeEventListener("contextmenu")
+	}
 
 	showPopup(e){
 		// console.log(e.target);

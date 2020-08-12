@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardBody, Button, CardHeader, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap'
 
-const NewEventCard = () => {
+function NewEventCard ({cancel}) {
 	return (
 		<div>
 			<Card>
@@ -28,13 +28,19 @@ const NewEventCard = () => {
 						</FormGroup>
 						<Row>
 							<Col>
-								<Button color="info"><span className="fa fa-plus"/> Save</Button>
+								<Button color="info" onClick={cancel}>
+									<span className="fa fa-plus"/> Save
+								</Button>
 							</Col>
 							<Col>
-								<Button color="danger"> <span className="fa fa-trash" /> Delete</Button>
+								<Button color="danger" onClick={cancel}> 
+									<span className="fa fa-trash" /> Delete
+								</Button>
 							</Col>
 							<Col>
-								<Button><span className="fa fa-times" /> Cancel</Button>
+								<Button onClick={cancel}>
+									<span className="fa fa-times" /> Cancel
+								</Button>
 							</Col>
 							
 						</Row>

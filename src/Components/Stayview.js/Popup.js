@@ -12,16 +12,19 @@ export default class Popup extends Component {
 		this.popup=React.createRef()
 		this.handleOutsideClick=this.handleOutsideClick.bind(this)
 		this.addNewEvent=this.addNewEvent.bind(this)
+		this.cancelEvent=this.cancelEvent.bind(this)
 	}
 
 	componentDidMount(){
 		document.addEventListener("click",this.handleOutsideClick)
 	}
+	componentWillUnmount(){
+		document.removeEventListener("click")
+	}
 
 	handleOutsideClick(event){
 		if (this.popup && !this.popup.current.contains(event.target)) {
-			this.props.hide()
-			this.setState({ event: false })
+			this.cancelEvent(event)
 		}
 	}
 
@@ -30,8 +33,11 @@ export default class Popup extends Component {
 		setTimeout(() => {
 			this.setState({ event: true })
 		}, 1);
-		
-		
+	}
+	cancelEvent(e){
+		e.preventDefault()
+		this.props.hide()
+		this.setState({ event: false })
 	}
 
 	render() {
@@ -43,7 +49,7 @@ export default class Popup extends Component {
 				{(show && !event)? <ListGroup>
 					<ListGroupItem onClick={(e) => this.addNewEvent(e)}><span className="fa fa-plus" /> Add Event</ListGroupItem>
 				</ListGroup>:null}
-				{(show && event) && <NewEventCard/>}
+				{(show && event) && <NewEventCard cancel={this.cancelEvent}/>}
 			</div>
 		)
 	}
