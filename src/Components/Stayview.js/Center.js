@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Table } from 'reactstrap'
 import Popup from './Popup'
-import NewEventCard from './NewEventCard'
+// import NewEventCard from './NewEventCard'
 
 export default class Center extends Component {
 	constructor(props){
@@ -48,7 +48,7 @@ export default class Center extends Component {
 	render() {
 		return (
 			<div className="col-6 col-lg-8  border tabs center" >
-				<NewEventCard/>
+				{/* <NewEventCard/> */}
 				<Popup show={this.state.show} xpos={this.state.xpos} ypos={this.state.ypos} hide={this.hidePopup}/>
 				<Table bordered className="text-center" onContextMenu={e => e.preventDefault()}>
 					<thead>
