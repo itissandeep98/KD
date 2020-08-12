@@ -25,13 +25,15 @@ export default class Center extends Component {
 			ypos:0
 		}
 		this.showPopup=this.showPopup.bind(this)
+		this.hidePopup = this.hidePopup.bind(this)
+		this.popup = React.createRef();
 	}
 	componentDidMount(){
 		document.addEventListener("contextmenu",(e)=>e.preventDefault())
 	}
 
 	showPopup(e){
-		console.log(e.target);
+		// console.log(e.target);
 		const target=e.target
 		this.setState({
 			show:true,
@@ -39,11 +41,16 @@ export default class Center extends Component {
 			ypos: target.offsetTop + 68
 		})
 	}
+	hidePopup(){
+		this.setState({
+			show:false
+		})
+	}
 
 	render() {
 		return (
 			<div className="col-6 col-lg-8  border tabs center">
-				<Popup show={this.state.show} xpos={this.state.xpos} ypos={this.state.ypos}/>
+				<Popup show={this.state.show} xpos={this.state.xpos} ypos={this.state.ypos} hide={this.hidePopup}/>
 				<Table bordered className="text-center">
 					<thead>
 						<tr>
