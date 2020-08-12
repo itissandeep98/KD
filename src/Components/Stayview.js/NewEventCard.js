@@ -6,7 +6,7 @@ import 'react-calendar/dist/Calendar.css';
 function NewEventCard ({cancel}) {
 	return (
 		<div>
-			<Card>
+			<Card id="popupcard">
 				<CardHeader>Edit Event</CardHeader>
 				<CardBody>
 					<Form>
@@ -28,7 +28,7 @@ function NewEventCard ({cancel}) {
 							<Label className="col-3"> Start</Label>
 							<Button id="cal1" className="col-4" onClick={(e)=>e.preventDefault()}> cal</Button>
 							<UncontrolledPopover trigger="legacy" placement="bottom" target="cal1">
-								<PopoverBody>
+								<PopoverBody className="calendarpopup">
 									<Calendar />
 								</PopoverBody>
 							</UncontrolledPopover>
@@ -37,8 +37,8 @@ function NewEventCard ({cancel}) {
 						<FormGroup className="row">
 							<Label className="col-3"> End</Label>
 							<Button id="cal2" className="col-4" onClick={(e) => e.preventDefault()}> cal</Button>
-							<UncontrolledPopover trigger="legacy" placement="bottom" target="cal2">
-								<PopoverBody>
+							<UncontrolledPopover trigger="legacy" placement="bottom" target="cal2" >
+								<PopoverBody className="calendarpopup">
 									<Calendar />
 								</PopoverBody>
 							</UncontrolledPopover>

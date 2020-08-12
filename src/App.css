@@ -64,3 +64,17 @@ input{
 	color: rgb(48, 46, 46) !important;
 	background-color: #fff !important;
 }
+.popover{
+	max-width: none !important;
+}
+#popupcard{
+	width: 400px;
+}
+
+.calendarpopup{
+	width: 340px;	
+}
+
+.calendarpopup .react-calendar{
+	font-size: 3px;
+}
