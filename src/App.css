@@ -46,8 +46,14 @@
 	position: fixed;
 	z-index: 1000;
 }
-.popup ul{
+.popup ul li{
 	cursor: pointer;
+}
+.popup ul :hover{
+	background-color: #ffe1b2;
+}
+.popup ul :active{
+	background-color: #ffca75;
 }
 input{
 	margin: 3px 3px 0px 0px !important;
