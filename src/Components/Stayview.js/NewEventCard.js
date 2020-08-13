@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
-import { Card, CardBody, Button, CardHeader, Form, FormGroup, Label, Input, Row, Col, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, PopoverBody, UncontrolledPopover, InputGroup, InputGroupAddon } from 'reactstrap'
+import { Card, CardBody, Button, CardHeader, Form, FormGroup, Label, Input, Row, Col, PopoverBody, UncontrolledPopover, InputGroup, InputGroupAddon } from 'reactstrap'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import TimePicker from 'react-time-picker';
 import { IconButton } from '@material-ui/core';
 import AlarmIcon from '@material-ui/icons/Alarm';
+import Event from './Event';
 
-function NewEventCard({ cancel }) {
+function NewEventCard({x,y, cancel,save }) {
 	const [time, onChange] = useState('10:00');
 	const [time1, onChange1] = useState('10:00');
 	const [date, setDate] = useState(new Date())
 	const [date1, setDate1] = useState(new Date())
+	const [name, setName] = useState("")
+	const [resource, setResource] = useState(1)
+	const event=<Event name={name} resource={resource}/>
 	return (
 		<div>
 			<Card id="popupcard">
@@ -19,17 +23,18 @@ function NewEventCard({ cancel }) {
 					<Form>
 						<FormGroup className="row">
 							<Label className="col-3"> Name</Label>
-							<Input className="col-8" type="text" />
+							<Input className="col-8" type="text" value={name} onChange={(e)=>setName(e.target.value)} />
 						</FormGroup>
 						<FormGroup className="row">
 							<Label className="col-3"> Resource</Label>
-							<UncontrolledDropdown className="col-8">
-								<DropdownToggle caret />
-								<DropdownMenu>
-									<DropdownItem>Item 1</DropdownItem>
-									<DropdownItem>Item 2</DropdownItem>
-								</DropdownMenu>
-							</UncontrolledDropdown>
+							<Input type="select" className="col-8" value={resource} onChange={(e) => setResource(e.target.value)} >
+								<option disabled selected>Select From below</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</Input>
 						</FormGroup>
 						<FormGroup className="row">
 							<Label className="col-3"> Start</Label>
@@ -90,7 +95,7 @@ function NewEventCard({ cancel }) {
 						</FormGroup>
 						<Row>
 							<Col>
-								<Button color="info" onClick={cancel}>
+								<Button color="info" onClick={(e)=>save(e,event)}>
 									<span className="fa fa-plus" /> Save
 								</Button>
 							</Col>

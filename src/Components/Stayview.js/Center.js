@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
 import { Table } from 'reactstrap'
 import Popup from './Popup'
-// import NewEventCard from './NewEventCard'
+import NewEventCard from './NewEventCard'
 
 export default class Center extends Component {
 	constructor(props){
 		super(props)
+		const date=new Date().getDate()
 		const head=[]
-		for (let i = 8; i <= 17; i++) {
+		for (let i = date; i <= date+9; i++) {
 			head.push(i)
 		}
 		const body=[]
 		for (let i = 0; i < 35; i++) {
 			const element = []
 			for (let j = 0; j <= 9; j++) {
-				element.push("")
+				element.push([])
 			}
 			body.push(element)
 		}
@@ -23,25 +24,40 @@ export default class Center extends Component {
 			body:body,
 			show:false,
 			xpos:0,
-			ypos:0
+			ypos:0,
+			x:-1,
+			y:-1
 		}
 		this.showPopup=this.showPopup.bind(this)
 		this.hidePopup = this.hidePopup.bind(this)
+		this.addElement=this.addElement.bind(this)
 		this.popup = React.createRef();
 	}
 
 	showPopup(e){
-		// console.log(e.target);
 		const target=e.target
 		this.setState({
 			show:true,
 			xpos:target.offsetLeft+350,
-			ypos: target.offsetTop + 68
+			ypos: target.offsetTop + 68,
+			x: e.target.parentNode.rowIndex - 2,
+			y: e.target.cellIndex
 		})
 	}
+
 	hidePopup(){
 		this.setState({
 			show:false
+		})
+	}
+
+	addElement(el){
+		const temp=this.state.body
+		const {x,y}=this.state
+		console.log(x,y);
+		temp[x][y].push(el)
+		this.setState({
+			body:temp
 		})
 	}
 
@@ -49,12 +65,12 @@ export default class Center extends Component {
 		return (
 			<div className="col-6 col-lg-8  border tabs center" >
 				{/* <NewEventCard/> */}
-				<Popup show={this.state.show} xpos={this.state.xpos} ypos={this.state.ypos} hide={this.hidePopup}/>
-				<Table bordered className="text-center" onContextMenu={e => e.preventDefault()}>
+				<Popup {...this.state} hide={this.hidePopup} save={this.addElement}/>
+				<Table borderless className="text-center" onContextMenu={e => e.preventDefault()}>
 					<thead>
 						<tr>
 							<td colSpan={20} key={Math.random().toString()}>
-								Mon 01 Dec
+								{new Date().toDateString()}
 							</td>
 						</tr>
 					</thead>

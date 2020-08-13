@@ -53,15 +53,19 @@ export default class Popup extends Component {
 	}
 
 	render() {
-		const {xpos,ypos,show}=this.props
+		const {x,y,xpos,ypos,show,save}=this.props
 		const {event}=this.state
-	
+		
+		const save1=(e,event)=>{
+			this.cancelEvent(e)
+			save(event)
+		}
 		return (
 			<div style={{ left: xpos, top: ypos }} className="popup" ref={this.popup}>
-				{(show && !event)? <ListGroup>
+				{(show && !event)&& <ListGroup>
 					<ListGroupItem onClick={(e) => this.addNewEvent(e)}><span className="fa fa-plus" /> Add Event</ListGroupItem>
-				</ListGroup>:null}
-				{(show && event) && <NewEventCard cancel={this.cancelEvent}/>}
+				</ListGroup>}
+				{(show && event) && <NewEventCard cancel={this.cancelEvent} x={x} y={y} save={save1}/>}
 			</div>
 		)
 	}
