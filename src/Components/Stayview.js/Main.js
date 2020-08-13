@@ -19,12 +19,12 @@ export default class Main extends Component {
 						</div>
 					</div>
 				</div>
-				<div className="d-md-none text-center" style={{height:"100vh"}}>
+				<div className="d-md-none text-center" style={{ height: "100vh" }}>
 					<Alert severity="error" style={{ height: "100vh" }}>
 						<AlertTitle>Error</AlertTitle>
 						<strong>Not available for Small Screens </strong>
-					</Alert>				
-			</div>
+					</Alert>
+				</div>
 			</div>
 		)
 	}

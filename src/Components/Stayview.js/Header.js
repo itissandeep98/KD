@@ -42,7 +42,7 @@ export default class Header extends Component {
 						</NavItem>
 						<NavItem style={{ marginLeft: "10px" }}>
 							<IconButton aria-disabled>
-								<span className="fa fa-magic fa-lg"/>
+								<span className="fa fa-magic fa-lg" />
 							</IconButton>
 						</NavItem>
 					</Nav>
