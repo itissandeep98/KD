@@ -7,14 +7,14 @@ import { IconButton } from '@material-ui/core';
 import AlarmIcon from '@material-ui/icons/Alarm';
 import Event from './Event';
 
-function NewEventCard({cancel,save }) {
+function NewEventCard({cancel,save,deletecard }) {
 	const [time, onChange] = useState('10:00');
 	const [time1, onChange1] = useState('11:00');
 	const [date, setDate] = useState(new Date())
 	const [date1, setDate1] = useState(new Date())
 	const [name, setName] = useState("")
 	const [resource, setResource] = useState(1)
-	const event = <Event name={name} resource={resource} startTime={{ time: time, date: date }} endTime={{ time: time1, date: date1 }}/>
+	const event = <Event name={name} resource={resource} startTime={{ time: time, date: date }} endTime={{ time: time1, date: date1 }} deletecard={deletecard}/>
 	return (
 		<div>
 			<Card id="popupcard">
@@ -93,17 +93,17 @@ function NewEventCard({cancel,save }) {
 								</InputGroupAddon>
 							</InputGroup>
 						</FormGroup>
-						<Row>
+						<Row className="text-center">
 							<Col>
 								<Button color="info" onClick={(e)=>save(e,event)}>
 									<span className="fa fa-plus" /> Save
 								</Button>
 							</Col>
-							<Col>
+							{/* <Col>
 								<Button color="danger" onClick={cancel}>
 									<span className="fa fa-trash" /> Delete
 								</Button>
-							</Col>
+							</Col> */}
 							<Col>
 								<Button onClick={cancel}>
 									<span className="fa fa-times" /> Cancel

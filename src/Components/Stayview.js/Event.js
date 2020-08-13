@@ -1,8 +1,26 @@
 import React, { Component } from 'react'
 import { Card, CardHeader } from 'reactstrap'
-import SchoolIcon from '@material-ui/icons/School';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import { IconButton } from '@material-ui/core';
 
 export default class Event extends Component {
+	constructor(props){
+		super(props)
+		this.delete=this.delete.bind(this)
+	}
+
+	delete(e){
+		var target = e.target
+		while(target.tagName!=="TD"){
+			target=target.parentNode
+		}
+		if(target.tagName==="TD"){
+			const x=target.parentNode.rowIndex-2
+			const y=target.cellIndex
+			this.props.deletecard(x,y)
+		}
+	}
+
 	render() {
 		const { name } = this.props
 		const dragStart = e => {
@@ -20,6 +38,7 @@ export default class Event extends Component {
 		const dragOver = e => {
 			e.stopPropagation()
 		}
+		
 		return (
 			<Card
 				id={"card" + Math.random().toString()}
@@ -28,18 +47,11 @@ export default class Event extends Component {
 				onDragStart={dragStart}
 				onDragOver={dragOver}
 			>
-				<CardHeader><SchoolIcon /> {name}</CardHeader>
-				{/* <CardBody>
-					<CardTitle>{resource}</CardTitle>
-					<Row>
-						<Col xs={12}>
-						<strong>StartTime:</strong> <time>{startTime.time} {startTime.date.toDateString()}</time>
-					</Col>
-						<Col xs={12}>
-							<strong>EndTime:</strong> <time>{endTime.time} {endTime.date.toDateString()}</time>
-					</Col>
-					</Row>
-				</CardBody> */}
+				<CardHeader> 
+					{name}
+					<IconButton className="float-right" onClick={(e)=>this.delete(e)}> <DeleteForeverIcon style={{color:"#fff"}} /> </IconButton> 
+				</CardHeader>
+				
 			</Card >
 		)
 	}

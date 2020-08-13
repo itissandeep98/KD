@@ -33,6 +33,7 @@ export default class Center extends Component {
 		this.hidePopup = this.hidePopup.bind(this)
 		this.addElement=this.addElement.bind(this)
 		this.drop=this.drop.bind(this)
+		this.deletecard=this.deletecard.bind(this)
 		this.popup = React.createRef();
 	}
 
@@ -65,6 +66,14 @@ export default class Center extends Component {
 		})
 	}
 
+	deletecard(x,y){
+		const temp = this.state.body
+		temp[x][y]=[]
+		this.setState({
+			body: temp
+		})
+	}
+
 	drop(e){
 		e.preventDefault()
 		const card_id = e.dataTransfer.getData('card_id');
@@ -88,7 +97,7 @@ export default class Center extends Component {
 
 		return (
 			<div className="col-6 col-lg-8  border tabs center" >
-				<Popup {...this.state} hide={this.hidePopup} save={this.addElement}/>
+				<Popup {...this.state} hide={this.hidePopup} save={this.addElement} deletecard={this.deletecard}/>
 				<Table borderless className="text-center" onContextMenu={e => e.preventDefault()}>
 					<thead>
 						<tr>
@@ -115,7 +124,7 @@ export default class Center extends Component {
 										onDrop={this.drop}
 										onDragOver={dragOver}
 										>
-										{cell}
+										{cell.map(ev=>(ev))}
 									</td>))
 								}
 							</tr>
