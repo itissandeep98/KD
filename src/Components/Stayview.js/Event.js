@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import { Card, CardHeader, CardBody, CardTitle, Row, Col } from 'reactstrap'
+import { Card, CardHeader} from 'reactstrap'
+import SchoolIcon from '@material-ui/icons/School';
 
 export default class Event extends Component {
 	render() {
-		const { name, resource,startTime,endTime } = this.props
+		const { name } = this.props
 		return (
-			<Card >
-				<CardHeader>{name}</CardHeader>
-				<CardBody>
+			<Card className="eventcard">
+				<CardHeader><SchoolIcon/> {name}</CardHeader>
+				{/* <CardBody>
 					<CardTitle>{resource}</CardTitle>
 					<Row>
 						<Col xs={12}>
@@ -17,7 +18,7 @@ export default class Event extends Component {
 							<strong>EndTime:</strong> <time>{endTime.time} {endTime.date.toDateString()}</time>
 					</Col>
 					</Row>
-				</CardBody>
+				</CardBody> */}
 			</Card >
 		)
 	}

@@ -7,7 +7,7 @@ import { IconButton } from '@material-ui/core';
 import AlarmIcon from '@material-ui/icons/Alarm';
 import Event from './Event';
 
-function NewEventCard({x,y, cancel,save }) {
+function NewEventCard({cancel,save }) {
 	const [time, onChange] = useState('10:00');
 	const [time1, onChange1] = useState('11:00');
 	const [date, setDate] = useState(new Date())

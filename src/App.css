@@ -27,7 +27,7 @@
 }
 
 .center .table tbody tr :hover{
-	background-color:#9caa98;
+	/* background-color:#9caa98; */
 	cursor: cell;
 }
 
@@ -78,4 +78,16 @@ input{
 	padding-right: 0px !important;
 	padding-left: 0px !important;
 	margin-right: 5px;
+}
+
+.eventcard{
+	color: #fff;
+	background-color: #4531fe !important;
+	min-width: 100px !important;
+	z-index: 100;
+}
+
+.eventcard :hover{
+	background-color: #1201b5 !important;
+	cursor: pointer !important;
 }

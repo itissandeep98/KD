@@ -25,8 +25,8 @@ export default class Center extends Component {
 			show:false,
 			xpos:0,
 			ypos:0,
-			x:-1,
-			y:-1
+			x:0,
+			y:0
 		}
 		this.showPopup=this.showPopup.bind(this)
 		this.hidePopup = this.hidePopup.bind(this)
@@ -36,6 +36,9 @@ export default class Center extends Component {
 
 	showPopup(e){
 		const target=e.target
+		if(target.tagName==="path" || target.classList.contains("card-header")){ // disable popup on card right click
+			return
+		}
 		this.setState({
 			show:true,
 			xpos:target.offsetLeft+350,
@@ -54,7 +57,6 @@ export default class Center extends Component {
 	addElement(el){
 		const temp=this.state.body
 		const {x,y}=this.state
-		console.log(x,y);
 		temp[x][y].push(el)
 		this.setState({
 			body:temp
@@ -80,11 +82,11 @@ export default class Center extends Component {
 							))}
 						</tr>
 					</thead>
-					<tbody>
+					<tbody >
 						{this.state.body.map(row=>(
 							<tr key={Math.random().toString()}>
 								{row.map(cell=>(
-									<td colSpan={2} onContextMenu={(e) => this.showPopup(e)} key={Math.random().toString()}>
+									<td colSpan={2} key={Math.random().toString()} onContextMenu={(e) => this.showPopup(e)}>
 										{cell}
 									</td>))
 								}

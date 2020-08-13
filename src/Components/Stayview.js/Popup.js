@@ -35,7 +35,7 @@ export default class Popup extends Component {
 		}
 
 		if (this.popup && !this.popup.current.contains(target)  && cond && target.tagName!=="line") {
-			console.log(target);
+			// console.log(target);
 			this.cancelEvent(event)
 		}
 	}
