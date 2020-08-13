@@ -34,8 +34,8 @@ export default class Popup extends Component {
 			cond = cond && !target.classList.contains(element)
 		}
 
-		if (this.popup && !this.popup.current.contains(target) && cond && target.tagName !== "line") {
-			// console.log(target);
+		if (this.popup && !this.popup.current.contains(target) && cond && target.tagName !== "line" && target.type!=="select-one") {
+			console.log(target);
 			this.cancelEvent(event)
 		}
 	}
@@ -56,9 +56,11 @@ export default class Popup extends Component {
 		const { x, y, xpos, ypos, show, save, deletecard } = this.props
 		const { event } = this.state
 
-		const save1 = (e, event) => {
+		const save1 = (e, event,x,y) => {
 			this.cancelEvent(e)
-			save(event)
+			var xpos=x.getDate()-new Date().getDate()
+			var ypos=parseInt(y.hh,10)-8
+			save(event,xpos,ypos)
 		}
 		return (
 			<div style={{ left: xpos, top: ypos }} className="popup" ref={this.popup}>

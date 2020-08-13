@@ -26,8 +26,6 @@ export default class Center extends Component {
 			show: false,
 			xpos: 0,
 			ypos: 0,
-			x: 0,
-			y: 0
 		}
 		this.showPopup = this.showPopup.bind(this)
 		this.hidePopup = this.hidePopup.bind(this)
@@ -46,9 +44,7 @@ export default class Center extends Component {
 		this.setState({
 			show: true,
 			xpos: e.clientX,
-			ypos: e.clientY,
-			x: target.parentNode.rowIndex - 2,
-			y: target.cellIndex
+			ypos: e.clientY
 		})
 	}
 
@@ -58,9 +54,8 @@ export default class Center extends Component {
 		})
 	}
 
-	addElement(el) {
+	addElement(el,x,y) {
 		const temp = this.state.body
-		var { x, y } = this.state
 		temp[x][y].push(el)
 		this.setState({
 			body: temp
