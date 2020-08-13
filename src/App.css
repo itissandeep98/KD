@@ -26,14 +26,15 @@
 	
 }
 
-.center .table tbody :hover{
-	background-color:#84c570;
+.center .table tbody tr :hover{
+	background-color:#9caa98;
 	cursor: cell;
 }
 
-.table tbody :hover{
+.sidenav .table tbody :hover{
 	background-color:#ffebca;
 }
+
 
 .popup{
 	position: fixed;
@@ -56,18 +57,6 @@ input{
 	margin: 3px 3px 0px 0px !important;
 }
 
-.dropdown{
-	padding: 0px !important;
-}
-
-.dropdown-toggle{
-	text-align: right !important;
-	margin: 0px !important;
-	width: 100%;
-	border-color: rgb(202, 200, 200) !important;
-	color: rgb(48, 46, 46) !important;
-	background-color: #fff !important;
-}
 
 .popover{
 	max-width: none !important;

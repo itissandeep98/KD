@@ -5,10 +5,11 @@ import Popup from './Popup'
 export default class Center extends Component {
 	constructor(props){
 		super(props)
-		const date=new Date().getDate()
+		
 		const head=[]
-		for (let i = date; i <= date+9; i++) {
-			head.push(i)
+		for (let i = 8; i <=17; i++) {
+			head.push(i+":00")
+			
 		}
 		const body=[]
 		for (let i = 0; i < 35; i++) {
@@ -67,7 +68,7 @@ export default class Center extends Component {
 				<Table borderless className="text-center" onContextMenu={e => e.preventDefault()}>
 					<thead>
 						<tr>
-							<td colSpan={20} key={Math.random().toString()}>
+							<td colSpan={20} key={Math.random().toString()} >
 								{new Date().toDateString()}
 							</td>
 						</tr>
@@ -75,7 +76,7 @@ export default class Center extends Component {
 					<thead>
 						<tr>
 							{this.state.head.map(t=>(
-								<td colSpan={2} key={Math.random().toString()}>{t}</td>
+								<td colSpan={2} key={Math.random().toString()} className="border">{t}</td>
 							))}
 						</tr>
 					</thead>

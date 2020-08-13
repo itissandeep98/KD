@@ -11,7 +11,7 @@ export default class LeftNav extends Component {
 	}
 	render() {
 		return (
-			<div className="col-3 col-lg-2 tabs ">
+			<div className="col-3 col-lg-2 tabs left sidenav">
 				<Table responsive onContextMenu={e => e.preventDefault()} >
 					<thead>
 						<tr className="text-center">

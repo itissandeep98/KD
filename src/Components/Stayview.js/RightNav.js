@@ -12,7 +12,7 @@ export default class RightNav extends Component {
 
 	render() {
 		return (
-			<div className="col-3 col-lg-2 tabs">
+			<div className="col-3 col-lg-2 tabs right sidenav">
 				<Table responsive onContextMenu={e => e.preventDefault()}>
 					<thead className="text-center">
 						<tr>

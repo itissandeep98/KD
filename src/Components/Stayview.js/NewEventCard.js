@@ -9,12 +9,12 @@ import Event from './Event';
 
 function NewEventCard({x,y, cancel,save }) {
 	const [time, onChange] = useState('10:00');
-	const [time1, onChange1] = useState('10:00');
+	const [time1, onChange1] = useState('11:00');
 	const [date, setDate] = useState(new Date())
 	const [date1, setDate1] = useState(new Date())
 	const [name, setName] = useState("")
 	const [resource, setResource] = useState(1)
-	const event=<Event name={name} resource={resource}/>
+	const event = <Event name={name} resource={resource} startTime={{ time: time, date: date }} endTime={{ time: time1, date: date1 }}/>
 	return (
 		<div>
 			<Card id="popupcard">
