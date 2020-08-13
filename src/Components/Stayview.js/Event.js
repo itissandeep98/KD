@@ -5,8 +5,24 @@ import SchoolIcon from '@material-ui/icons/School';
 export default class Event extends Component {
 	render() {
 		const { name } = this.props
+		const dragStart=e=>{
+			const target=e.target;
+			e.dataTransfer.setData('card_id',target.id)
+			setTimeout(() => {
+				target.style.display="none"
+			}, 0);
+		}
+		const dragOver=e=>{
+			e.stopPropagation()
+		}
 		return (
-			<Card className="eventcard">
+			<Card 
+				id={"card" + Math.random().toString()}
+				className="eventcard"
+				draggable
+				onDragStart={dragStart}
+				onDragOver={dragOver}
+				>
 				<CardHeader><SchoolIcon/> {name}</CardHeader>
 				{/* <CardBody>
 					<CardTitle>{resource}</CardTitle>

@@ -31,6 +31,7 @@ export default class Center extends Component {
 		this.showPopup=this.showPopup.bind(this)
 		this.hidePopup = this.hidePopup.bind(this)
 		this.addElement=this.addElement.bind(this)
+		this.drop=this.drop.bind(this)
 		this.popup = React.createRef();
 	}
 
@@ -56,18 +57,42 @@ export default class Center extends Component {
 
 	addElement(el){
 		const temp=this.state.body
-		const {x,y}=this.state
+		var {x,y}=this.state
 		temp[x][y].push(el)
 		this.setState({
 			body:temp
 		})
 	}
 
+	drop(e){
+		e.preventDefault()
+		const card_id = e.dataTransfer.getData('card_id');
+		const card = document.getElementById(card_id);
+		card.style.display = 'block'
+		// const temp = this.state.body
+		// var x = e.target.parentNode.rowIndex - 2
+		// var y = e.target.cellIndex
+		// temp[x][y].push(card)
+		// this.setState({
+		// 	body: temp
+		// })
+		e.target.appendChild(card)
+		console.log(card);
+	}
+
 	render() {
+		
+
+		const dragOver= e=>{
+			e.preventDefault()
+
+		}
+
+
 		return (
 			<div className="col-6 col-lg-8  border tabs center" >
 				<Popup {...this.state} hide={this.hidePopup} save={this.addElement}/>
-				<Table borderless className="text-center" onContextMenu={e => e.preventDefault()}>
+				<Table bordered className="text-center" onContextMenu={e => e.preventDefault()}>
 					<thead>
 						<tr>
 							<td colSpan={20} key={Math.random().toString()} >
@@ -86,7 +111,13 @@ export default class Center extends Component {
 						{this.state.body.map(row=>(
 							<tr key={Math.random().toString()}>
 								{row.map(cell=>(
-									<td colSpan={2} key={Math.random().toString()} onContextMenu={(e) => this.showPopup(e)}>
+									<td 
+										colSpan={2} 
+										key={Math.random().toString()} 
+										onContextMenu={(e) => this.showPopup(e)}
+										onDrop={this.drop}
+										onDragOver={dragOver}
+										>
 										{cell}
 									</td>))
 								}
