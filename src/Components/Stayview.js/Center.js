@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Table } from 'reactstrap'
 import Popup from './Popup'
+import Event from './Event'
 
 export default class Center extends Component {
 	constructor(props){
@@ -67,27 +68,23 @@ export default class Center extends Component {
 	drop(e){
 		e.preventDefault()
 		const card_id = e.dataTransfer.getData('card_id');
-		const card = document.getElementById(card_id);
-		card.style.display = 'block'
-		// const temp = this.state.body
-		// var x = e.target.parentNode.rowIndex - 2
-		// var y = e.target.cellIndex
-		// temp[x][y].push(card)
-		// this.setState({
-		// 	body: temp
-		// })
-		e.target.appendChild(card)
-		console.log(card);
+		const props = JSON.parse(card_id)
+		const card = <Event {...props}/>;
+		const temp = this.state.body
+		temp[props.x][props.y]=temp[props.x][props.y].filter(el=>el===card) // remove the original from state
+		var x = e.target.parentNode.rowIndex - 2
+		var y = e.target.cellIndex
+		temp[x][y].push(card)
+		this.setState({
+			body: temp
+		})
 	}
 
 	render() {
-		
 
 		const dragOver= e=>{
 			e.preventDefault()
-
 		}
-
 
 		return (
 			<div className="col-6 col-lg-8  border tabs center" >

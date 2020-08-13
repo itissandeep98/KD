@@ -1,29 +1,34 @@
 import React, { Component } from 'react'
-import { Card, CardHeader} from 'reactstrap'
+import { Card, CardHeader } from 'reactstrap'
 import SchoolIcon from '@material-ui/icons/School';
 
 export default class Event extends Component {
 	render() {
 		const { name } = this.props
-		const dragStart=e=>{
-			const target=e.target;
-			e.dataTransfer.setData('card_id',target.id)
+		const dragStart = e => {
+			const target = e.target;
+			const data = {
+				...this.props,
+				x: target.parentNode.parentNode.rowIndex - 2,
+				y: target.parentNode.cellIndex
+			}
+			e.dataTransfer.setData('card_id', JSON.stringify(data))
 			setTimeout(() => {
-				target.style.display="none"
+				target.style.display = "none"
 			}, 0);
 		}
-		const dragOver=e=>{
+		const dragOver = e => {
 			e.stopPropagation()
 		}
 		return (
-			<Card 
+			<Card
 				id={"card" + Math.random().toString()}
 				className="eventcard"
 				draggable
 				onDragStart={dragStart}
 				onDragOver={dragOver}
-				>
-				<CardHeader><SchoolIcon/> {name}</CardHeader>
+			>
+				<CardHeader><SchoolIcon /> {name}</CardHeader>
 				{/* <CardBody>
 					<CardTitle>{resource}</CardTitle>
 					<Row>
