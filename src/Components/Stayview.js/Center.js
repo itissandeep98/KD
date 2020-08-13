@@ -89,7 +89,7 @@ export default class Center extends Component {
 		return (
 			<div className="col-6 col-lg-8  border tabs center" >
 				<Popup {...this.state} hide={this.hidePopup} save={this.addElement}/>
-				<Table bordered className="text-center" onContextMenu={e => e.preventDefault()}>
+				<Table borderless className="text-center" onContextMenu={e => e.preventDefault()}>
 					<thead>
 						<tr>
 							<td colSpan={20} key={Math.random().toString()} >
@@ -100,7 +100,7 @@ export default class Center extends Component {
 					<thead>
 						<tr>
 							{this.state.head.map(t=>(
-								<td colSpan={2} key={Math.random().toString()} className="border">{t}</td>
+								<td colSpan={2} key={Math.random().toString()} className="timehead border">{t}</td>
 							))}
 						</tr>
 					</thead>

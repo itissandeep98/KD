@@ -9,7 +9,7 @@ export default class Event extends Component {
 			const target = e.target;
 			const data = {
 				...this.props,
-				x: target.parentNode.parentNode.rowIndex - 2,
+				x: target.parentNode.parentNode.rowIndex - 2, // original x y coordinates in table of the event
 				y: target.parentNode.cellIndex
 			}
 			e.dataTransfer.setData('card_id', JSON.stringify(data))
