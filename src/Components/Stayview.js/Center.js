@@ -42,12 +42,13 @@ export default class Center extends Component {
 		if(target.tagName==="path" || target.classList.contains("card-header")){ // disable popup on card right click
 			return
 		}
+		
 		this.setState({
 			show:true,
-			xpos:target.offsetLeft+350,
-			ypos: target.offsetTop + 68,
-			x: e.target.parentNode.rowIndex - 2,
-			y: e.target.cellIndex
+			xpos: e.clientX,
+			ypos: e.clientY,
+			x: target.parentNode.rowIndex - 2,
+			y: target.cellIndex
 		})
 	}
 
