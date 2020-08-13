@@ -78,7 +78,7 @@ export default class Center extends Component {
 		e.preventDefault()
 		const card_id = e.dataTransfer.getData('card_id');
 		const props = JSON.parse(card_id)
-		const card = <Event {...props}/>;
+		const card = <Event {...props} deletecard={this.deletecard}/>;
 		const temp = this.state.body
 		temp[props.x][props.y]=temp[props.x][props.y].filter(el=>el===card) // remove the original from state
 		var x = e.target.parentNode.rowIndex - 2

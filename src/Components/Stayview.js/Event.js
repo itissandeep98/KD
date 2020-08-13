@@ -38,6 +38,7 @@ export default class Event extends Component {
 		const dragOver = e => {
 			e.stopPropagation()
 		}
+		// console.log(this.props);
 		
 		return (
 			<Card
