@@ -1,0 +1,30 @@
+name: layer0 publish
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+          cache: "npm"
+          cache-dependency-path: yarn.lock
+      - uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/build
+          key: ${{ runner.os }}-react-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-react-${{ hashFiles('**/yarn.lock') }}
+      - name: publish package
+        run: |
+          npm i -g @layer0/cli
+          yarn
+          yarn build
+          layer0 deploy  --token=${{secrets.layer0DeployToken}}
